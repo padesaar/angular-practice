@@ -445,9 +445,7 @@
   </div>
 
   <div>
-    <ul>
-      <li *ngFor = "let dog of doggies">{{dog.name}}</li>
-    </ul>
+    <app-dog [dogTitle]="dogTitle" [doggies]="doggies"></app-dog>
     <p *ngIf="doggies.length<=2">Who let the dogs out?</p>
 
   </div>

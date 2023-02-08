@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Dog} from "./dog/models/Dog";
+import {Dog} from "./shared/models/Dog";
 
 @Component({
   selector: 'app-root',
@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
 
   doggies: Dog[] = [];
   dogNames: string [] = ['Caesar', 'Scooby', 'Shadow'];
-
+  dogTitle = 'List of dogs';
   fetchDoggos(): Dog[] { //function return dog array
     let doggos: Dog[] = [];
     doggos.push(new Dog('Jack', 'Dober', 'Runs faster'));
