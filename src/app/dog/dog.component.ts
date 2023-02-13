@@ -1,5 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
 import {Dog} from "../shared/models/Dog";
+import {Component, Input, OnInit} from "@angular/core";
 
 @Component({
   selector: 'app-dog',
@@ -8,9 +8,30 @@ import {Dog} from "../shared/models/Dog";
 })
 export class DogComponent implements OnInit{
 
+  //input var name and type = initialized var value
   @Input() dogTitle: string = '';
   @Input() doggies: Dog[] = [];
+  // Displaying values from one component to another
 
-  ngOnInit(): void {
+  displayedColumns: string[] = ['name', 'type', 'property'];
+
+  // @ts-ignore
+  @ViewChild(MatTable) table: MatTable<Dog>;
+
+  addData() {
+    const randomElementIndex = Math.floor(Math.random() * this.doggies.length);
+    this.doggies.push(this.doggies[randomElementIndex]);
+    this.table.renderRows();
   }
+
+  removeData() {
+    this.doggies.pop();
+    this.table.renderRows();
+  }
+  ngOnInit(): void {
+
+  }
+
+
+
 }
