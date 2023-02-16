@@ -1,5 +1,6 @@
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {Dog} from "../shared/models/Dog";
-import {Component, Input, OnInit} from "@angular/core";
+import {MatTable} from "@angular/material/table";
 
 @Component({
   selector: 'app-dog',
@@ -7,12 +8,8 @@ import {Component, Input, OnInit} from "@angular/core";
   styleUrls: ['./dog.component.css']
 })
 export class DogComponent implements OnInit{
-
-  //input var name and type = initialized var value
-  @Input() dogTitle: string = '';
-  @Input() doggies: Dog[] = [];
-  // Displaying values from one component to another
-
+  doggies: Dog[] = [];
+  dogTitle = 'List of dogs';
   displayedColumns: string[] = ['name', 'type', 'property'];
 
   // @ts-ignore
@@ -28,10 +25,17 @@ export class DogComponent implements OnInit{
     this.doggies.pop();
     this.table.renderRows();
   }
-  ngOnInit(): void {
 
+  ngOnInit(): void {
+    this.doggies = this.fetchDoggos();
   }
 
+  fetchDoggos(): Dog[] { //function return dog array
+    let doggos: Dog[] = [];
+    doggos.push(new Dog('Jack', 'Dober', 'Runs faster'));
+    doggos.push(new Dog('Julie', 'German Shepperd', 'Eats well'));
 
+    return doggos;
 
+  }
 }

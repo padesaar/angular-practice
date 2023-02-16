@@ -1,3 +1,12 @@
+<!--
+<h2>{{ dogTitle }}</h2>
+<ul>
+  <li *ngFor="let dog of doggies">{{ dog.name }}</li>
+</ul>
+-->
+
+
+
 <div class="demo-button-container">
   <button mat-raised-button (click)="addData()" class="demo-button">
     Add data
@@ -12,7 +21,6 @@
 </div>
 
 <table mat-table [dataSource]="doggies" class="mat-elevation-z8 demo-table">
-
   <!-- Name Column -->
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef>Name</th>
@@ -21,7 +29,7 @@
 
   <!-- Type Column -->
   <ng-container matColumnDef="type">
-    <th mat-header-cell *matHeaderCellDef>Type:</th>
+    <th mat-header-cell *matHeaderCellDef>Type</th>
     <td mat-cell *matCellDef="let element">{{element.type}}</td>
   </ng-container>
 
@@ -35,11 +43,4 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 
-<app-dog-form></app-dog-form> <!-- creating template form --->
 
-<h2>{{dogTitle}}</h2>
-<ul>
-  <li *ngFor = "let dog of doggies">{{dog.name}}</li>
-</ul>
-
-<app-dog-form></app-dog-form>
